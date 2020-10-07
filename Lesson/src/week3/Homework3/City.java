@@ -22,12 +22,11 @@ public class City {
         // 연도
         int count = years;
         // 주어진 연도 후의 예상 인구를 계산한다
-        //여기에 코드를 삽입하세요
-        for (int i = 1; i <= count; i++) {
-            populationAmount += (populationAmount * growthRate / 100);
-        }
+//        for (int i = 1; i <= count; i++) {
+//            populationAmount += (populationAmount * growthRate / 100);
+//        }
         // 예상 인구를 반환한다
-        // 여기에 코드를 삽입하세요
+        populationAmount = populationAmount * Math.pow(1 + growthRate / 100, count);
         return (int) populationAmount;
     }
     // 도시 이름을 주어진 값으로 변경한다
