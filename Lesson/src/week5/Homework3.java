@@ -1,7 +1,7 @@
 package week5;
 
 import java.util.Scanner;
-class Main {
+class Homework3 {
     public static void main(String[] args) {
         System.out.print("Please enter a sentence:");
         Scanner scan = new Scanner(System.in);
