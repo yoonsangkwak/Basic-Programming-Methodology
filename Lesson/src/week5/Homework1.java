@@ -152,14 +152,44 @@ class AccountController
             {
                 // 코드를 작성하세요.
                 int amount = reader.readAmount();
-                if (account.transaction(amount)) writer.setTransaction("withdraw $", amount);
-                else writer.setTransaction("withdraw error ", amount);
+                if (account == primary_account) {
+                    if (account.withdraw(amount)) {
+                        resetAccount(secondary_account, secondary_writer);
+                        account.deposit(amount);
+                        resetAccount(primary_account, primary_writer);
+                        writer.setTransaction("transfer $", amount);
+                    } else {
+                        writer.setTransaction("transfer error");
+                    }
+                } else {
+                    if (account.withdraw(amount)) {
+                        resetAccount(primary_account, primary_writer);
+                        account.deposit(amount);
+                        resetAccount(secondary_account, secondary_writer);
+                        writer.setTransaction("transfer $", amount);
+                    } else {
+                        writer.setTransaction("transfer error");
+                    }
+                }
                 break;
             }
             case 'I':
                 // 'I 이율', 활성 계좌의 금액을 이율만큼 증가
             {
                 // 코드를 작성하세요.
+                double temp = reader.readAmount();
+                String df = new DecimalFormat("0.00").format(temp/100);
+                double interest = Double.parseDouble(df);
+                if (interest < 0 && interest > 1) {
+                    writer.setTransaction("interest error");
+                } else {
+                    int amount = (int) (account.getBalance() * interest);
+                    if (account.deposit(amount)) {
+                        writer.setTransaction("interest $", amount);
+                    } else {
+                        writer.setTransaction("interest error");
+                    }
+                }
                 break;
             }
             default:
