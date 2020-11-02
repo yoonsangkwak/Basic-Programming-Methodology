@@ -15,13 +15,49 @@ abstract class Converter {
 
 class Won2Dollar extends Converter {
     // fill here!
+    public Won2Dollar(double ratio) {
+        this.ratio = ratio;
+    }
+
+    @Override
+    protected double convert(double src) {
+        return src / this.ratio;
+    }
+
+    @Override
+    protected String getSrcString() {
+        return "won";
+    }
+
+    @Override
+    protected String getDestString() {
+        return "dollar";
+    }
 }
 
 class Km2Mile extends Converter {
     // fill here!
+    public Km2Mile(double ratio) {
+        this.ratio = ratio;
+    }
+
+    @Override
+    protected double convert(double src) {
+        return src / ratio;
+    }
+
+    @Override
+    protected String getSrcString() {
+        return "km";
+    }
+
+    @Override
+    protected String getDestString() {
+        return "mile";
+    }
 }
 
-class Main {
+class Homework2 {
     public static void main(String[] args) {
         Won2Dollar toDollar = new Won2Dollar(1200); // 1달러는 1200원
         toDollar.run(2400);

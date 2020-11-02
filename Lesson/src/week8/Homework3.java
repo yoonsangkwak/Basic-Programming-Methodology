@@ -13,18 +13,39 @@ class StringArray implements MyArray {
     private String[] arr;
     public StringArray(int num) {
         // fill here!
+        arr = new String[num];
+        max_num = num;
+        this.num = 0;
     }
     public int length() {
         // fill here!
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != null) {
+                this.num++;
+                this.max_num--;
+            }
+        }
+        return this.num;
     }
     public int capacity() {
         // fill here!
+        return arr.length;
     }
     public String get_remove(int index) {
         // fill here!
+        String ans;
+        ans = arr[index];
+        for (int i = index; i < arr.length - 1; i++) {
+            arr[i] = arr[i+1];
+        }
+        arr[arr.length - 1] = null;
+        return ans;
     }
+    @Override
     public boolean set(String val, int index) {
         // fill here!
+        arr[index] = val;
+        return arr[index].equals(val);
     }
 }
 

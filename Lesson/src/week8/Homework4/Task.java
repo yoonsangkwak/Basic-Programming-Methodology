@@ -14,34 +14,58 @@ public class Task implements Priority, Complexity {
     // 난이도를 1로 하는 생성자
     public Task(String taskName, int taskTime) {
         // 여기에 코드를 완성하세요.
+        this.name = taskName;
+        this.time = taskTime;
+        this.priority = 1;
+        this.complexity = 1;
     }
     // 과업의 이름을 반환
     public String getName() {
         // 여기에 코드를 완성하세요.
+        return this.name;
     }
     // 과업의 소요 시간을 반환
     public int getTime(){
         // 여기에 코드를 완성하세요.
+        return this.time;
     }
     // 과업의 우선순위를 알려주는 메소드 구현
     // 여기에 코드를 완성하세요.
+    @Override
+    public int getPriority() {
+        return this.priority;
+    }
 
     // 과업의 난이도를 알려주는 메소드 구현
     // 여기에 코드를 완성하세요.
+    @Override
+    public int getComplexity() {
+        return this.complexity;
+    }
 
     // 과업의 이름을 변경
     public void setName(String newName) {
         // 여기에 코드를 완성하세요.
+        this.name = newName;
     }
     // 과업의 소요 시간을 변경
     public void setTime(int newtime) {
         // 여기에 코드를 완성하세요.
+        this.time = newtime;
     }
     // 과업의 우선순위를 변경하는 메소드 구현
     // 여기에 코드를 완성하세요.
+    @Override
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
 
     // 과업의 난이도를 변경하는 메소드 구현
     // 여기에 코드를 완성하세요.
+    @Override
+    public void setComplexity(int complexity) {
+        this.complexity = complexity;
+    }
 
     // 과업의 정보를 반환
     public String toString() {

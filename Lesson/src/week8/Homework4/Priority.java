@@ -6,8 +6,10 @@ public interface Priority {
 
     // 우선순위를 변경한다. setPriority
     // 여기에 코드를 완성하세요.
+    void setPriority(int priority);
 
     // 우선순위를 알려준다. getPriority
     // 여기에 코드를 완성하세요.
+    int getPriority();
 
 }
