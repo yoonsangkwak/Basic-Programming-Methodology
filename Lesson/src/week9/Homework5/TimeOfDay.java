@@ -38,6 +38,11 @@ public class TimeOfDay {
         // InvalidHourException 예외를 발생시킨다
         // 여기에 코드를 완성하세요.
 
+        if (hourFound < 0 || hourFound > 23) {
+            throw new InvalidHourException("시가 0부터 23사이의 범위 밖에 있다");
+        }
+
+
         // 분을 따로 저장한다.
         String minuteString = scan.next();
 
@@ -49,18 +54,23 @@ public class TimeOfDay {
             // '분이 정수값이 아니다'라는 메시지를 갖는
             // InvalidTimeFormatException 예외를 발생시킨다
             // 여기에 코드를 완성하세요
+            throw new InvalidTimeFormatException("분이 정수 값이 아니다");
         }
 
         // 분을 나타내는 값이 0보다 작거나 59보다 크다면
         // '분이 0부터 59사이의 범위 밖에 있다'라는 메시지를 갖는
         // InvalidMinuteException 예외를 발생시킨다
         // 여기에 코드를 완성하세요
+        if (minuteFound < 0 || minuteFound > 59) {
+            throw new InvalidMinuteException("분이 0부터 59사이의 범위 밖에 있다");
+        }
 
         // 시를 변경한다
         hour = hourFound;
 
         // 분을 변경한다
         // 여기에 코드를 완성하세요
+        minute = minuteFound;
 
     }
 
