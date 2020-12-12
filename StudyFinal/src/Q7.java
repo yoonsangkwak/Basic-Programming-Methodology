@@ -1,12 +1,8 @@
 public class Q7 {
-    public static boolean isPrime(int n) throws RuntimeException{
-        // modify this function!
-        try {
-            if (n > 2 || n < 1000000) {
-                throw new RuntimeException("hi");
-            }
-        } catch (RuntimeException e) {
-            e.getMessage();
+    public static boolean isPrime(int n) {
+        // 소스코드가 컴파일 되고 throw 구문을 이용해 예외를 발생시키기만 하면 만점
+        if (n < 2 || n > 1000000) {
+            throw new RuntimeException();
         }
 
         boolean answer = true;
