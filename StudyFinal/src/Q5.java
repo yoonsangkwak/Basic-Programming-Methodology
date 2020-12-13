@@ -3,6 +3,9 @@ public class Q5 {
         int N = a.length;
         for (int i = 1; i < N; i++)
             for (int j = i; j > 0; j--)
+                // 모범답안은
+//                if (a[j-1].compareTo(a[j]) < 0)
+
                 if (a[j-1].compareTo(a[j]) > 0)
                     exch(a, j-1, j);
                 else break;

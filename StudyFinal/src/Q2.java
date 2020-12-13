@@ -3,10 +3,11 @@ public class Q2 {
         String result = "";
         for(int i = 0; i < v.length; i++) {
 
-            // null 값 처리
-            if (v[i] == null) {
-                v[i] = "";
-            }
+            // null 값 처리 모범답안
+            if (v[i] != null)
+//            if (v[i] == null) {
+//                v[i] = "";
+//            }
 
             result += v[i].toUpperCase();
         }
